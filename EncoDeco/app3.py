@@ -105,7 +105,7 @@ model = BiLSTMPOSTagger(INPUT_DIM, EMBEDDING_DIM, HIDDEN_DIM, OUTPUT_DIM, N_LAYE
 
 # Load the trained weights
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.load_state_dict(torch.load('pos-tagger-model-fixed.pt', map_location=device))
+model.load_state_dict(torch.load('pos-tagger-model-advanced.pt', map_location=device))
 model.to(device)
 model.eval() # Set model to evaluation mode
 
