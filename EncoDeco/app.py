@@ -182,7 +182,8 @@ def predict_tags(sentence: str):
     
     # --- Post-processing and Formatting ---
     # Convert indices back to tag labels
-    pred_tags = [idx_to_tag.get(str(i), '???') for i in pred_indices[1:len(tokens)+1]]
+    # FIX: Look up the integer index `i` directly, without converting to a string.
+    pred_tags = [idx_to_tag.get(i, '???') for i in pred_indices[1:len(tokens)+1]]
     
     # Format for Gradio's HighlightedText component
     # It expects a list of (word, tag) tuples
@@ -233,4 +234,5 @@ iface = gr.Interface(
 
 # Launch the app!
 iface.launch()
+
 
